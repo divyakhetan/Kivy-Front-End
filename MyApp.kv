@@ -1,0 +1,36 @@
+#:kivy 1.11.1
+
+<MyBoxLayout>:
+    # cols: 2
+   
+
+    FloatLayout:
+        size_hint:(0.5,1)
+        Button:
+            text: "Click One"
+            background_color: 1,0,1,1
+            font_size: 20
+            size_hint: (0.3, 0.1)
+            pos_hint:{'x' : 0.1, 'y' : 0.65}
+        
+        Button:
+            text: "Click 2"
+            background_color: 1,0,1,1
+            font_size: 20
+            size_hint: (0.3, 0.1)
+            pos_hint:{'x' : 0.1, 'y' : 0.45}
+        
+        Button:
+            text: "Click 3"
+            background_color: 1,0,1,1
+            font_size: 20
+            size_hint: (0.3, 0.1)
+            pos_hint:{'x' : 0.1, 'y' : 0.25}
+
+        Camera:
+            id: camera
+            resolution: (640, 480)
+            play: True
+            size_hint: (0.5, 1)
+            pos_hint: {'x':0.5}
+                
