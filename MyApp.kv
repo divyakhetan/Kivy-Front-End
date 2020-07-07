@@ -3,9 +3,61 @@
 
 ScreenManagement:
     transition : FadeTransition()
+    # ScreenIntroa:
+    # ScreenIntrob:
     Screen1:
+    Screen1success:
+    Screen1failure:
     Screen2:
-    Screen3:
+    Screen2success:
+    Screen2failure:
+    Screen3a:
+    Screen3b:
+    Screen3c:
+    Screen3d:
+    Screen4:
+    Screen5:
+
+<ScreenIntroa>:
+    name: "screenintroa"
+    FloatLayout:
+        Image:
+            source: "./assets/united-nations-covid-1.png"
+            pos_hint: {'x' : 0, 'y' : 0}
+            color: 1,1,1,0.5
+            allow_stretch: True
+            keep_ratio: False
+
+        Image:
+            source: "./assets/Living things logo-01.png"
+            pos_hint: {'x' : 0.1, 'top': 0.65}
+            size_hint: (0.2, 1)
+
+        Image:
+            source: "./assets/Group 24.png"
+            pos_hint: {'x': 0.4}
+            size_hint:(0.5, 1)
+
+<ScreenIntrob>:
+    name: "screenintrob"
+    FloatLayout:
+        Image:
+            source: "./assets/united-nations-covid-1.png"
+            pos_hint: {'x' : 0, 'y' : 0}
+            color: 1,1,1,0.5
+            allow_stretch: True
+            keep_ratio: False
+
+        Image:
+            source: "./assets/Living things logo-01.png"
+            pos_hint: {'x' : 0.1, 'top': 0.65}
+            size_hint: (0.2, 1)
+
+        Image:
+            source: "./assets/Group 25.png"
+            pos_hint: {'x': 0.4}
+            size_hint:(0.5, 1)
+
 
 <Screen1>:
     name: "screen1"
@@ -24,11 +76,14 @@ ScreenManagement:
             size_hint: (0.5, 1)
             pos_hint: {'x':0.5}
 
+        Label:
+            text: "Look into the camera and align your face"
+            pos_hint:{'x' : 0.3, 'top' : 0.6}
+
         FloatLayout:
             size_hint: 0.5, 1
             Button:
-                # on_press: camera.play = not camera.play
-                on_release: app.root.current = "screen2" 
+                on_release: app.root.current = "screen1success" 
                 text: "Mask Detection"
                 color : 0,0,0,1
                 background_normal : ''
@@ -80,6 +135,133 @@ ScreenManagement:
     canvas.after:
         PopMatrix
 
+
+<Screen1success>:
+    name: "screen1success"
+    FloatLayout:
+        Image:
+            # source: "./assets/mask.png"
+            source: "./assets/united-nations-covid-1.png"
+            pos_hint: {'x' : 0, 'y' : 0}
+            color: 1,1,1,0.5
+            allow_stretch: True
+            keep_ratio: False
+
+        CameraCv:
+            id: camera
+            resolution: (640,480)
+            size_hint: (0.5, 1)
+            pos_hint: {'x':0.5}
+
+        FloatLayout:
+            size_hint: 0.5, 1
+            Button:
+                on_release: app.root.current = "screen2" 
+                text: "Mask Detection"
+                color : 0,0,0,1
+                background_normal : ''
+                background_color: 0,1,0,1
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.65}
+                # border: 50, 50, 50, 50
+                Image:
+                    source: "./assets/mask.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+            
+            Button:
+                text: "Body Temperature"
+                color : 0,0,0,0.3
+                background_normal : ''
+                background_color: 1,1,1,0.3
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.45}
+                Image:
+                    source: "./assets/thermo.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+                    color: 1,1,1,0.3
+            
+            Button:
+                text: "Luggage"
+                color : 0,0,0,0.3
+                background_normal : ''
+                background_color: 1,1,1,0.3
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.25}
+                Image:
+                    source: "./assets/sm bag -2.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+                    color: 1,1,1,0.3
+
+
+<Screen1failure>:
+    name: "screen1failure"
+    FloatLayout:
+        Image:
+            # source: "./assets/mask.png"
+            source: "./assets/united-nations-covid-1.png"
+            pos_hint: {'x' : 0, 'y' : 0}
+            color: 1,1,1,0.5
+            allow_stretch: True
+            keep_ratio: False
+
+        CameraCv:
+            id: camera
+            resolution: (640,480)
+            size_hint: (0.5, 1)
+            pos_hint: {'x':0.5}
+
+        FloatLayout:
+            size_hint: 0.5, 1
+            Button:
+                on_release: app.root.current = "screen2" 
+                text: "Mask Detection"
+                color : 0,0,0,1
+                background_normal : ''
+                background_color: 1,0,0,1
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.65}
+                # border: 50, 50, 50, 50
+                Image:
+                    source: "./assets/mask.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+            
+            Button:
+                text: "Body Temperature"
+                color : 0,0,0,0.3
+                background_normal : ''
+                background_color: 1,1,1,0.3
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.45}
+                Image:
+                    source: "./assets/thermo.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+                    color: 1,1,1,0.3
+            
+            Button:
+                text: "Luggage"
+                color : 0,0,0,0.3
+                background_normal : ''
+                background_color: 1,1,1,0.3
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.25}
+                Image:
+                    source: "./assets/sm bag -2.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+                    color: 1,1,1,0.3
+
+
 <Screen2>:
     name: "screen2"
     FloatLayout:
@@ -108,7 +290,7 @@ ScreenManagement:
                     center_y: self.parent.center_y
             
             Button:
-                on_release: app.root.current = "screen3" 
+                on_release: app.root.current = "screen2success" 
                 text: "Body Temperature"
                 color : 0,0,0,1
                 background_normal : ''
@@ -143,11 +325,10 @@ ScreenManagement:
             play: False
 
 
-<Screen3>:
-    name: "screen3"
+<Screen2success>:
+    name: "screen2success"
     FloatLayout:
         Image:
-            # source: "./assets/mask.png"
             source: "./assets/united-nations-covid-1.png"
             pos_hint: {'x' : 0, 'y' : 0}
             color: 1,1,1,0.5
@@ -157,7 +338,6 @@ ScreenManagement:
         FloatLayout:
             size_hint: 0.5, 1
             Button:
-                # on_release: app.root.current = "screen2" 
                 text: "Mask Detection"
                 color : 0,0,0,1
                 background_normal : ''
@@ -185,6 +365,7 @@ ScreenManagement:
                     center_y: self.parent.center_y
             
             Button:
+                on_release: app.root.current = "screen3a" 
                 text: "Luggage"
                 color : 0,0,0,0.3
                 background_normal : ''
@@ -204,3 +385,329 @@ ScreenManagement:
             size_hint: (0.5, 1)
             pos_hint: {'x':0.5}
             play: False
+
+<Screen2failure>:
+    name: "screen2failure"
+    FloatLayout:
+        Image:
+            source: "./assets/united-nations-covid-1.png"
+            pos_hint: {'x' : 0, 'y' : 0}
+            color: 1,1,1,0.5
+            allow_stretch: True
+            keep_ratio: False
+        
+        FloatLayout:
+            size_hint: 0.5, 1
+            Button:
+                text: "Mask Detection"
+                color : 0,0,0,1
+                background_normal : ''
+                background_color: 0,1,0,1
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.65}
+                # border: 50, 50, 50, 50
+                Image:
+                    source: "./assets/mask.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+            
+            Button:
+                text: "Body Temperature"
+                color : 0,0,0,1
+                background_normal : ''
+                background_color: 1,0,0,1
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.45}
+                Image:
+                    source: "./assets/thermo.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+            
+            Button:
+                on_release: app.root.current = "screen3a"                 
+                text: "Luggage"
+                color : 0,0,0,0.3
+                background_normal : ''
+                background_color: 1,1,1,0.3
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.25}
+                Image:
+                    source: "./assets/sm bag -2.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+                    color: 1,1,1,0.3
+
+        CameraCv:
+            id: camera
+            resolution: (640,480)
+            size_hint: (0.5, 1)
+            pos_hint: {'x':0.5}
+            play: False
+
+
+<Screen3a>:
+    name: "screen3a"
+    FloatLayout:
+        Image:
+            source: "./assets/united-nations-covid-1.png"
+            pos_hint: {'x' : 0, 'y' : 0}
+            color: 1,1,1,0.5
+            allow_stretch: True
+            keep_ratio: False
+        
+        FloatLayout:
+            size_hint: 0.5, 1
+            Button:
+                text: "Mask Detection"
+                color : 0,0,0,1
+                background_normal : ''
+                background_color: 0,1,0,1
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.65}
+                # border: 50, 50, 50, 50
+                Image:
+                    source: "./assets/mask.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+            
+            Button:
+                text: "Body Temperature"
+                color : 0,0,0,1
+                background_normal : ''
+                background_color: 0,1,0,1
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.45}
+                Image:
+                    source: "./assets/thermo.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+            
+            Button:
+                on_release: app.root.current = "screen3b"                 
+                text: "Luggage"
+                color : 0,0,0,1
+                background_normal : ''
+                background_color: 1,1,1,1
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.25}
+                Image:
+                    source: "./assets/sm bag -2.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+                    color: 1,1,1,1
+
+        Image:
+            source: "./assets/1.png"
+            size_hint: (0.5, 1)
+            pos_hint: {'x' : 0.5}
+
+<Screen3b>:
+    name: "screen3b"
+    FloatLayout:
+        Image:
+            source: "./assets/united-nations-covid-1.png"
+            pos_hint: {'x' : 0, 'y' : 0}
+            color: 1,1,1,0.5
+            allow_stretch: True
+            keep_ratio: False
+        
+        FloatLayout:
+            size_hint: 0.5, 1
+            Button:
+                text: "Mask Detection"
+                color : 0,0,0,1
+                background_normal : ''
+                background_color: 0,1,0,1
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.65}
+                # border: 50, 50, 50, 50
+                Image:
+                    source: "./assets/mask.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+            
+            Button:
+                text: "Body Temperature"
+                color : 0,0,0,1
+                background_normal : ''
+                background_color: 0,1,0,1
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.45}
+                Image:
+                    source: "./assets/thermo.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+            
+            Button:
+                on_release: app.root.current = "screen3c"                 
+                text: "Luggage"
+                color : 0,0,0,1
+                background_normal : ''
+                background_color: 1,1,1,1
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.25}
+                Image:
+                    source: "./assets/sm bag -2.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+                    color: 1,1,1,1
+
+        Image:
+            source: "./assets/2.png"
+            size_hint: (0.5, 1)
+            pos_hint: {'x' : 0.5}
+
+<Screen3c>:
+    name: "screen3c"
+    FloatLayout:
+        Image:
+            source: "./assets/united-nations-covid-1.png"
+            pos_hint: {'x' : 0, 'y' : 0}
+            color: 1,1,1,0.5
+            allow_stretch: True
+            keep_ratio: False
+        
+        FloatLayout:
+            size_hint: 0.5, 1
+            Button:
+                text: "Mask Detection"
+                color : 0,0,0,1
+                background_normal : ''
+                background_color: 0,1,0,1
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.65}
+                # border: 50, 50, 50, 50
+                Image:
+                    source: "./assets/mask.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+            
+            Button:
+                text: "Body Temperature"
+                color : 0,0,0,1
+                background_normal : ''
+                background_color: 0,1,0,1
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.45}
+                Image:
+                    source: "./assets/thermo.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+            
+            Button:
+                on_release: app.root.current = "screen3d"                 
+                text: "Luggage"
+                color : 0,0,0,1
+                background_normal : ''
+                background_color: 1,1,1,1
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.25}
+                Image:
+                    source: "./assets/sm bag -2.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+                    color: 1,1,1,1
+
+        Image:
+            source: "./assets/3.png"
+            size_hint: (0.5, 1)
+            pos_hint: {'x' : 0.5}
+
+<Screen3d>:
+    name: "screen3d"
+    FloatLayout:
+        Image:
+            source: "./assets/united-nations-covid-1.png"
+            pos_hint: {'x' : 0, 'y' : 0}
+            color: 1,1,1,0.5
+            allow_stretch: True
+            keep_ratio: False
+        
+        FloatLayout:
+            size_hint: 0.5, 1
+            Button:
+                text: "Mask Detection"
+                color : 0,0,0,1
+                background_normal : ''
+                background_color: 0,1,0,1
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.65}
+                # border: 50, 50, 50, 50
+                Image:
+                    source: "./assets/mask.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+            
+            Button:
+                text: "Body Temperature"
+                color : 0,0,0,1
+                background_normal : ''
+                background_color: 0,1,0,1
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.45}
+                Image:
+                    source: "./assets/thermo.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+            
+            Button:
+                on_release: app.root.current = "screen4"                 
+                text: "Luggage"
+                color : 0,0,0,1
+                background_normal : ''
+                background_color: 0,1,0,1
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.25}
+                Image:
+                    source: "./assets/sm bag -2.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+                    color: 1,1,1,1
+
+        Image:
+            source: "./assets/4.png"
+            size_hint: (0.5, 1)
+            pos_hint: {'x' : 0.5}
+
+
+<Screen4>:
+    name: "screen4"
+    FloatLayout:
+        Image:
+            source: "./assets/united-nations-covid-1.png"
+            pos_hint: {'x' : 0, 'y' : 0}
+            color: 1,1,1,0.5
+            allow_stretch: True
+            keep_ratio: False
+
+        Image:
+            source: "./assets/5.png"
+
+
+<Screen5>:
+    name: "screen5"
+    FloatLayout:
+        Image:
+            source: "./assets/united-nations-covid-1.png"
+            pos_hint: {'x' : 0, 'y' : 0}
+            color: 1,1,1,0.5
+            allow_stretch: True
+            keep_ratio: False
+
+        Image:
+            source: "./assets/7.png"
