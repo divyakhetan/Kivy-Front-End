@@ -1,31 +1,21 @@
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
 #:kivy 1.11.1
 
-<MyBoxLayout>:
-    # cols: 2
-   
+ScreenManagement:
+    transition : FadeTransition()
+    Screen1:
+    Screen2:
 
+<Screen1>:
+    name: "screen1"
     FloatLayout:
-        size_hint:(0.5,1)
-        Button:
-            text: "Click One"
-            background_color: 1,0,1,1
-            font_size: 20
-            size_hint: (0.3, 0.1)
-            pos_hint:{'x' : 0.1, 'y' : 0.65}
-        
-        Button:
-            text: "Click 2"
-            background_color: 1,0,1,1
-            font_size: 20
-            size_hint: (0.3, 0.1)
-            pos_hint:{'x' : 0.1, 'y' : 0.45}
-        
-        Button:
-            text: "Click 3"
-            background_color: 1,0,1,1
-            font_size: 20
-            size_hint: (0.3, 0.1)
-            pos_hint:{'x' : 0.1, 'y' : 0.25}
+        Image:
+            # source: "./assets/mask.png"
+            source: "./assets/united-nations-covid-1.png"
+            pos_hint: {'x' : 0, 'y' : 0}
+            color: 1,1,1,0.5
+            allow_stretch: True
+            keep_ratio: False
 
         Camera:
             id: camera
@@ -33,4 +23,111 @@
             play: True
             size_hint: (0.5, 1)
             pos_hint: {'x':0.5}
-                
+
+        FloatLayout:
+            size_hint: 0.5, 1
+            Button:
+                on_press: camera.play = not camera.play
+                on_release: app.root.current = "screen2" 
+                text: "Mask Detection"
+                color : 0,0,0,1
+                background_normal : ''
+                background_color: 1,1,1,1
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.65}
+                # border: 50, 50, 50, 50
+                Image:
+                    source: "./assets/mask.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+            
+            Button:
+                text: "Body Temperature"
+                color : 0,0,0,1
+                background_normal : ''
+                background_color: 1,1,1,0.5
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.45}
+                Image:
+                    source: "./assets/thermo.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+            
+            Button:
+                text: "Luggage"
+                color : 0,0,0,1
+                background_normal : ''
+                background_color: 1,1,1,0.5
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.25}
+                Image:
+                    source: "./assets/sm bag -2.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+
+        
+        
+
+<Screen2>:
+    name: "screen2"
+    FloatLayout:
+        Image:
+            # source: "./assets/mask.png"
+            source: "./assets/united-nations-covid-1.png"
+            pos_hint: {'x' : 0, 'y' : 0}
+            color: 1,1,1,0.5
+            allow_stretch: True
+            keep_ratio: False
+        
+        FloatLayout:
+            size_hint: 0.5, 1
+            Button:
+                # on_release: app.root.current = "screen2" 
+                text: "Mask Detection"
+                color : 0,0,0,1
+                background_normal : ''
+                background_color: 0,1,0,1
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.65}
+                # border: 50, 50, 50, 50
+                Image:
+                    source: "./assets/mask.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+            
+            Button:
+                text: "Body Temperature"
+                color : 0,0,0,1
+                background_normal : ''
+                background_color: 1,1,1,1
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.45}
+                Image:
+                    source: "./assets/thermo.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+            
+            Button:
+                text: "Luggage"
+                color : 0,0,0,1
+                background_normal : ''
+                background_color: 1,1,1,0.5
+                font_size: 20
+                size_hint: (0.5, 0.1)
+                pos_hint:{'x' : 0.1, 'y' : 0.25}
+                Image:
+                    source: "./assets/sm bag -2.png"
+                    center_x: self.parent.center_x * 0.55
+                    center_y: self.parent.center_y
+
+        # Camera:
+        #     id: camera2
+        #     resolution: (640, 480)
+        #     play: False
+        #     size_hint: (0.5, 1)
+        #     pos_hint: {'x':0.5}
