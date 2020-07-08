@@ -70,6 +70,7 @@ ScreenManagement:
             allow_stretch: True
             keep_ratio: False
 
+        
         CameraCv:
             id: camera
             resolution: (640,480)
@@ -78,7 +79,8 @@ ScreenManagement:
 
         Label:
             text: "Look into the camera and align your face"
-            pos_hint:{'x' : 0.3, 'top' : 0.6}
+            font_size: 20
+            pos_hint:{'x' : 0.25, 'top' : 0.65}
 
         FloatLayout:
             size_hint: 0.5, 1
@@ -153,6 +155,12 @@ ScreenManagement:
             size_hint: (0.5, 1)
             pos_hint: {'x':0.5}
 
+        Label:
+            text: "Mask detected"
+            font_size: 20
+            pos_hint:{'x' : 0.25, 'top' : 0.65}
+            color: 0,1,0,1
+
         FloatLayout:
             size_hint: 0.5, 1
             Button:
@@ -216,6 +224,12 @@ ScreenManagement:
             size_hint: (0.5, 1)
             pos_hint: {'x':0.5}
 
+        Label:
+            text: "Please wear your mask"
+            font_size: 20
+            pos_hint:{'x' : 0.25, 'top' : 0.65}
+            color: 1,0,1,1
+
         FloatLayout:
             size_hint: 0.5, 1
             Button:
@@ -273,6 +287,11 @@ ScreenManagement:
             allow_stretch: True
             keep_ratio: False
         
+        Label:
+            text: "Analysing Body Temperature"
+            font_size: 20
+            pos_hint:{'x' : 0.25, 'top' : 0.65}
+
         FloatLayout:
             size_hint: 0.5, 1
             Button:
@@ -335,6 +354,12 @@ ScreenManagement:
             allow_stretch: True
             keep_ratio: False
         
+        Label:
+            text: "Temperature Normal"
+            font_size: 20
+            pos_hint:{'x' : 0.25, 'top' : 0.65}
+            color: 0,1,0,1
+
         FloatLayout:
             size_hint: 0.5, 1
             Button:
@@ -396,6 +421,12 @@ ScreenManagement:
             allow_stretch: True
             keep_ratio: False
         
+        Label:
+            text: "Temperature is high"
+            font_size: 20
+            pos_hint:{'x' : 0.25, 'top' : 0.65}
+            color: 1,0,0,1
+
         FloatLayout:
             size_hint: 0.5, 1
             Button:
