@@ -14,3 +14,8 @@ The main challenge faced -
   
 Snapshots of the how the screen looks like: 
 
+1. Shows the screen once the mask is detected successfully. 
+![Image of mask detection](https://dl.dropbox.com/s/12bes6ov84akhc9/kiosk1.png?dl=0)
+
+2. Shows the screen once all the tasks have been completed. 
+![Image of all tasks completed](https://dl.dropbox.com/s/q4iw94svhhi36hu/ss4.JPG?dl=0)
